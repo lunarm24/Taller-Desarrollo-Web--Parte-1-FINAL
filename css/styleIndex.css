@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  color: var(--ink);
+  background-color: var(--cream);
+  line-height: 1.7;
+  /* degradado sutil encima del color base, de arriba a abajo */
+  background: linear-gradient(to bottom,
+    #fffdf8 0%,
+    #faf3e6 45%,
+    #f5ecdc 100%);
+}
+
+/* ===== Títulos: fuente display + subrayado azul claro (requisito) ===== */
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: var(--dusk-dark);
+  display: inline-block;
+  position: relative;
+  padding-bottom: 6px;
+  transition: transform 0.3s ease; /* para el efecto al pasar el mouse */
+}
+
+h1:hover, h2:hover, h3:hover {
+  transform: translateY(-2px);
+}
+
+h1::after, h2::after, h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--skyblue);
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+/* enlaces dentro de parrafos de texto */
+p a {
+  color: var(--terracotta);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--terracotta);
+}
+
+p a:hover {
+  color: var(--amber);
+}
+
+/* ===== Barra de menú fija, siempre visible ===== */
+.menu {
+  background-color: var(--dusk-dark);
+  gap: 36px;
+  padding: 18px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.menu a {
+  color: #f2e9da;
+  font-family: 'Work Sans', sans-serif;
+  letter-spacing: 0.03em;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--amber);
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* ===== Contenedor principal ===== */
+main {
+  margin-top: 90px;
+  padding: 30px 40px 10px;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
+}
+
+header h1 {
+  margin-bottom: 20px;
+}
+
+header,
+section,
+footer {
+  animation: aparecer .8s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  margin-bottom: 45px;
+}
+
+section p {
+  margin: 0;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+/* ===== Bloque imagen + texto: cada pareja se aisla para que no se pisen y no queden raras ===== */
+.bienvenida-bloque {
+  overflow: hidden;   /* clearfix: obliga al bloque a "contener" la imagen flotante */
+  clear: both;        /* evita que este bloque se pegue al float del bloque anterior */
+  margin-bottom: 30px;
+}
+
+/* ===== Imagen de bienvenida, flotando a la izquierda dentro de su bloque ===== */
+.bienvenida-figura {
+  float: left;
+  width: 240px;
+  margin: 4px 24px 12px 0;
+  background: #fff;
+  padding: 10px 10px 14px;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(24, 42, 68, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.bienvenida-figura:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, .18);
+}
+
+.bienvenida-img {
+  width: 100%;
+  display: block;
+  border: 2px solid black;
+  transition: transform 0.35s ease;
+}
+
+.bienvenida-figura:hover .bienvenida-img {
+  transform: scale(1.03);
+}
+
+.bienvenida-figura figcaption {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #6b6b6b;
+  margin-top: 8px;
+  font-style: italic;
+  letter-spacing: .03em;
+}
+
+/* ===== Footer ===== */
+footer {
+  color: #d8cfc0;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}

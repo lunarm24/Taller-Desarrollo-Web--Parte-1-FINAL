@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+/* Paleta de colores usada en todo el sitio */
+:root {
+  --ink: #20242c;
+  --cream: #faf3e6;
+  --amber: #e2a63b;
+  --terracotta: #c8553d;
+  --dusk: #223a5e;
+  --dusk-dark: #182a44;
+  --skyblue: #8fc7e6; /* subrayado requerido para los títulos */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* html con scroll suave, para cuando se usa el menu para saltar de seccion */
+html {
+  scroll-behavior: smooth;
+}
+
+/* color de fondo cuando el usuario selecciona texto con el mouse */
+::selection {
+  background: var(--amber);
+  color: white;
+}
+
+/* el subrayado de los títulos cambia a ambar y se pone un poco mas grueso al hacer hover */
+h1:hover::after,
+h2:hover::after,
+h3:hover::after {
+  background: var(--amber);
+  height: 5px;
+}
+
+/* ===== Barra de menú fija, siempre visible ===== */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* ===== Contenedor principal ===== */
+main {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(4px);
+  border-radius: 18px;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 18px;
+  background: linear-gradient(to right,
+    var(--dusk-dark),
+    var(--dusk),
+    var(--dusk-dark));
+}

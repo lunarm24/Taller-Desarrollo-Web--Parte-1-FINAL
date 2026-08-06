@@ -1,0 +1,169 @@
+:root{
+    /* color propio de esta página, para las filas impares de la tabla */
+    --green-row:#dcefd8;
+}
+
+body{
+    margin:0;
+    font-family:'Work Sans',sans-serif;
+    color:var(--ink);
+    background:linear-gradient(to bottom,#fffdf8,#faf3e6);
+    line-height:1.7;
+}
+
+/*==========================
+TÍTULOS
+==========================*/
+
+h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    color:var(--dusk-dark);
+    display:inline-block;
+    position:relative;
+    padding-bottom:6px;
+}
+
+/* subrayado decorativo debajo de los titulos, requisito de la tabla */
+h1::after,
+h2::after,
+h3::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:4px;
+    background:var(--skyblue);
+    border-radius:2px;
+    transition:all .35s ease; /* para que el cambio de color en hover sea suave */
+}
+
+h1{
+    font-size:2.5rem;
+}
+
+/*==========================
+MENÚ
+==========================*/
+
+.menu{
+    background:var(--dusk-dark);
+    gap:36px;
+    padding:18px 0;
+    box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+
+.menu a{
+    color:#f2e9da;
+    font-size:.95rem;
+    transition:.3s;
+}
+
+/*==========================
+CONTENIDO
+==========================*/
+
+main{
+    margin-top:95px;
+    max-width:950px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:35px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    /* animacion de aparicion cuando carga la pagina */
+    animation:entrada .8s ease;
+}
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+section{
+    margin-top:25px;
+}
+
+/*==========================
+TABLA
+==========================*/
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+thead th{
+    background:var(--dusk-dark);
+    color:white;
+    font-weight:bold;
+    padding:18px;
+    text-align:left;
+    font-size:1rem;
+}
+
+tbody td{
+    padding:16px;
+    border:1px solid #d7d7d7;
+}
+
+/* Filas impares */
+
+tbody tr:nth-child(odd){
+    background:var(--green-row);
+}
+
+/* Filas pares */
+
+tbody tr:nth-child(even){
+    background:white;
+}
+
+/* Efecto al pasar el mouse */
+
+tbody tr{
+    transition:.25s;
+}
+
+tbody tr:hover{
+    background:#f7e8c5;
+    transform:scale(1.01);
+}
+
+/* Primera columna */
+
+tbody td:first-child{
+    font-weight:600;
+    color:var(--dusk-dark);
+    width:35%;
+}
+
+/* Segunda columna */
+
+tbody td:last-child{
+    width:65%;
+}
+
+/*==========================
+FOOTER
+==========================*/
+
+footer{
+    margin-top:50px;
+    color:#d8cfc0;
+    font-size:.9rem;
+}
